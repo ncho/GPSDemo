@@ -14,8 +14,8 @@ struct ContentView: View {
     var body: some View {
         VStack {
             if let location = locationManager.location {
-                Text("Latitude: \(location.coordinate.latitude)")
-                Text("Longitude: \(location.coordinate.longitude)")
+                Text("LATITUDE: \(location.coordinate.latitude)")
+                Text("LONGITUDE: \(location.coordinate.longitude)")
             } else {
                 Text("Getting location...")
             }
