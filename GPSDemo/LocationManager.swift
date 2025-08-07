@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  LocationManager.swift
 //  GPSDemo
 //
 //  Created by Nathan Cho on 8/6/25.
@@ -26,7 +26,14 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         if let firstLocation = locations.first {
             location = firstLocation
             lastUpdateTime = Date()
-            locationManager.stopUpdatingLocation()
+            locationManager.stopUpdatingLocation() // Stop to save battery
         }
+    }
+
+    // ✅ NEW: Public method to refresh the location manually
+    func refreshLocation() {
+        location = nil
+        lastUpdateTime = nil
+        locationManager.startUpdatingLocation()
     }
 }
