@@ -12,6 +12,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     private var locationManager = CLLocationManager()
     
     @Published var location: CLLocation?
+    @Published var lastUpdateTime: Date?
 
     override init() {
         super.init()
@@ -22,7 +23,10 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     }
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        location = locations.first
+        if let firstLocation = locations.first {
+            location = firstLocation
+            lastUpdateTime = Date()
+            locationManager.stopUpdatingLocation()
+        }
     }
 }
-
