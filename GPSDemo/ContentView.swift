@@ -35,9 +35,11 @@ struct ContentView: View {
                         )
                     )
                 )) {
-                    // Optional future annotations
+                    // ✅ Add a marker at the current/simulated location
+                    Marker("Here", coordinate: location.coordinate)
                 }
                 .frame(height: 300)
+
 
                 Text("Latitude: \(location.coordinate.latitude) \(locationManager.isSimulated ? "(simulated)" : "")")
                 Text("Longitude: \(location.coordinate.longitude) \(locationManager.isSimulated ? "(simulated)" : "")")
