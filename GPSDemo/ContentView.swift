@@ -39,7 +39,6 @@ struct ContentView: View {
                 Text("Getting location...")
             }
 
-            // ✅ NEW: Refresh Location Button
             Button("Refresh Location") {
                 locationManager.refreshLocation()
             }

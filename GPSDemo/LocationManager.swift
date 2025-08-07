@@ -30,7 +30,6 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         }
     }
 
-    // ✅ NEW: Public method to refresh the location manually
     func refreshLocation() {
         location = nil
         lastUpdateTime = nil
